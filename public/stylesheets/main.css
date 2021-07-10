@@ -1,0 +1,161 @@
+:root {
+    --pierwidth: 200px;
+    --marg: 30px;
+    --stuffwidth: 180px;
+    --sidewidth: calc((100% - var(--pierwidth) - 2 * var(--stuffwidth))/2 - var(--marg));
+    --rower: path("M55.3,9c0-5-4-9-9-9c-5,0-9,4-9,9H22.9c0-5-4-9-9-9c-5,0-9,4-9,9H0v32.9h4.9c0,5,4,9,9,9c5,0,9-4,9-9h14.4c0,5,4,9,9,9c5,0,9-4,9-9h4.9V9H55.3z");
+    --factor: 3;
+    --width: calc(60.1px*var(--factor));
+    --height: calc(50.9px*var(--factor));
+}
+
+
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+#lake {
+    /* background-color: lightblue; */
+    background-image: linear-gradient(blue, lightblue);
+    text-align: center;
+  }
+#upperside {
+ width: 100%;
+ height: 100px;
+}
+.column {
+    display: table-cell;
+}
+
+.left {
+    text-align: right;
+    fixed-width: var(--sidewidth);
+}
+
+
+.leftstuff {
+    text-align: left;
+    padding-right: var(--marg);
+    width: var(--stuffwidth);
+}
+
+.rightstuff {
+    text-align: right;
+    padding-left: var(--marg);
+    width: var(--stuffwidth);
+}
+
+.right {
+    text-align: left;
+    fixed-width: var(--sidewidth);
+}
+.pier {
+    width: var(--pierwidth);
+    fixed-width: var(--pierwidth);
+    background-color: brown;
+}
+.lowerside {
+    display: table;
+    width: 100%;
+}
+
+.butt {
+    border: black;
+    width: var(--width);
+    height: var(--height);
+    shape-outside: var(--rower);
+    clip-path: var(--rower);
+    cursor:pointer;
+ }
+.pos {
+    z-index: 2;
+    position: absolute;
+}
+
+ .green {
+    background-color: green;
+ }
+
+ .red {
+    background-color: red;
+ }
+
+ .shadow {
+    background-color: black;
+    opacity: 10%;
+ }
+
+ .change {
+    transform: scale(var(--factor));
+    transform-origin: top left;
+ }
+
+
+ .motion {
+    /* offset-path: path("M 0,0 c -100 0, -200 -279,-200 -300"); */
+    offset-anchor: center;
+    offset-rotate: 0deg;
+    animation: a 2000ms ease-in forwards;
+ }
+ .motiondiv {
+ transform-origin: 90px -200px;
+   transform: rotate(0deg);
+   animation: c 3000ms ease-out forwards reverse;
+   animation-timing-function: linear;
+  }
+
+ .reverse {
+    /* offset-path: path("M 0,0 c -100 0, -200 -279,-200 -300"); */
+    offset-anchor: center;
+    offset-distance: 100%;
+    offset-rotate: 90deg;
+    animation: b 2000ms  ease-out forwards;
+ }
+
+@keyframes c {
+     50% {
+            transform:translate(-190px,0px)
+         }
+         100% {
+         transform: rotate(90deg);
+
+         }
+  }
+
+
+ @keyframes a {
+    0% {
+      offset-distance: 0%;
+    }
+    20% {
+    offset-rotate: 0deg;
+    }
+    100% {
+        offset-rotate: 0deg;
+        offset-distance: 100%;
+    }
+  }
+  @keyframes b {
+    80% {
+        offset-rotate: 0deg
+    }
+    100% {
+        offset-rotate: 0deg;
+        offset-distance: 0%;
+    }
+  }
+#beach {
+    background-color: rgb(234, 240, 150);
+    text-align: center;
+    min-height: 100px;
+}
+
+.wrapper{
+  position: relative;
+}
+
+.firstDiv, .secondDiv{
+  position: absolute;
+}

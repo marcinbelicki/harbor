@@ -1,0 +1,15 @@
+@* login Template File *@
+
+@()(implicit request: RequestHeader)
+
+
+@main("Login") {
+    <h2>Login</h2>
+    <form method="post" action="@routes.loginController.validateLoginPost">
+        @helper.CSRF.formField
+        @* @helper.CSRF.getToken.value *@
+        Username: <input type="text" name="username"><br>
+        Password: <input type="password" name="password"><br>
+        <input type="submit">
+    </form>
+}

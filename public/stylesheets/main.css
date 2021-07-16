@@ -11,6 +11,15 @@
 
 
 
+
+
+object {
+    z-index: 1;
+    position: absolute;
+    transform-origin: 100px -200px;
+}
+
+
 html, body {
     margin: 0;
     padding: 0;
@@ -61,7 +70,7 @@ html, body {
     width: 100%;
 }
 
-.butt {
+.pedalo {
     border: black;
     width: var(--width);
     height: var(--height);

@@ -7,9 +7,14 @@
 GET     /                           controllers.HomeController.index()
 
 GET     /login                      controllers.loginController.login
-GET     /harbor                     controllers.loginController.harbor
+GET     /harbor                     controllers.loginControllerDB.harbor
 
-POST    /validatePost               controllers.loginController.validateLoginPost
+
+
+POST    /validatePost               controllers.loginControllerDB.validateLoginPost
+
++ nocsrf
+POST    /changeStatus               controllers.loginControllerDB.changeStatus
 
 
 # Map static resources from the /public folder to the /assets URL path

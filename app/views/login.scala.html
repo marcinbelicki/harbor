@@ -5,7 +5,7 @@
 
 @main("Login") {
     <h2>Login</h2>
-    <form method="post" action="@routes.loginController.validateLoginPost">
+    <form method="post" action="@routes.loginControllerDB.validateLoginPost">
         @helper.CSRF.formField
         @* @helper.CSRF.getToken.value *@
         Username: <input type="text" name="username"><br>

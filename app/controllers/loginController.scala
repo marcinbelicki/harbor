@@ -25,7 +25,7 @@ class loginController @Inject() (cc: ControllerComponents) extends AbstractContr
                   val username = args("username").head
                   val password = args("password").head
                 if (userInMemoryModel.validateUser(username,password)) {
-                  Redirect(routes.loginController.harbor)
+                  Redirect(routes.loginControllerDB.harbor)
                     .withSession("username" -> username)
                 } else {
                   Redirect(routes.loginController.login)

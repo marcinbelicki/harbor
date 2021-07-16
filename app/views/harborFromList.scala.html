@@ -1,0 +1,39 @@
+@* harbor Template File *@
+
+@(boats: (List[(Int,String,String)],List[(Int,String,String)]))
+
+
+@main("Harbor") {
+<div id="lake">
+    <div id = "upperside">
+
+    </div>
+    <div class = "lowerside">
+        <div class="column left"></div>
+        <div class="column leftstuff" style="z-index: 0; position: relative;">
+            @boats._1.map { a =>
+                <div id="@a._1" style="z-index: 1; position: absolute; transform-origin: 100px -200px; visibility: @a._3" class = "o">
+                    <input class = "@a._2 change green" type="button" onclick="goOut(this.parentNode);">
+                </div>
+                <input class = "@a._2 change shadow" type="button" onclick="goIn(this.previousElementSibling,this);">
+            }
+        </div>
+        <div class="column pier">
+        </div>
+        <div class="column rightstuff">
+            @boats._2.map { a =>
+                <div id="@a._1" style="z-index: 1; position: absolute; transform-origin: 100px -200px; visibility: @a._3" class = "o">
+                    <input class = "@a._2 change green" type="button" onclick="goOut(this.parentNode);">
+                </div>
+                <input class = "pedalo change shadow" type="button" onclick="goIn(this.previousElementSibling,this);">
+            }
+        </div>
+        <div class="column right"></div>
+    </div>
+</div>
+<div id="beach">
+
+</div>
+<script type="text/javascript" src="@routes.Assets.versioned("javascripts/libraries/anime-master/lib/anime.js")"></script>
+<script src="@routes.Assets.versioned("javascripts/harbor.js")" type="text/javascript"></script>
+}
